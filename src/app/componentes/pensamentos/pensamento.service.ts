@@ -22,11 +22,16 @@ export class PensamentoService {
 
   excluir(idPensamento: number): Observable<Pensamento> {
     const url = `${this.API}/${idPensamento}`
-    return this.http.delete<Pensamento>(url)
+    return this.http.delete<Pensamento>(url);
   }
 
   buscarPorId(idPensamento: number): Observable<Pensamento> {
     const url = `${this.API}/${idPensamento}`
-    return this.http.get<Pensamento>(url)
+    return this.http.get<Pensamento>(url);
+  }
+
+  alterar(pensamento: Pensamento): Observable<Pensamento>{
+    const url = `${this.API}/${pensamento.id}`
+    return this.http.put<Pensamento>(url, pensamento);
   }
 }
